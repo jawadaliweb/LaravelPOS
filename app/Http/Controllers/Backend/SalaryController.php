@@ -32,25 +32,30 @@ class SalaryController extends Controller
         $currentMonth = date('m');
         $requestedMonth = date('m', strtotime($date));
     
-        if ($employee->salary >= $request->advance_salary) {
-            if ($requestedMonth >= $currentMonth) {
-                if (!$advance) {
-                    AdvanceSalary::create([
-                        'employee_id' => $request->employee_id,
-                        'date' => $request->date,
-                        'advance_salary' => $request->advance_salary,
-                        'status' => 0,
-                    ]);
-                    return redirect()->back()->with('success', 'Advance Added Successfully');
+        if ($request->advance_salary >= 0 && $request->advance_salary != 0) { // Check if the requested advance salary is non-negative
+            if ($employee->salary >= $request->advance_salary) {
+                if ($requestedMonth >= $currentMonth) {
+                    if (!$advance) {
+                        AdvanceSalary::create([
+                            'employee_id' => $request->employee_id,
+                            'date' => $request->date,
+                            'advance_salary' => $request->advance_salary,
+                            'status' => 0,
+                        ]);
+                        return redirect()->back()->with('success', 'Advance Added Successfully');
+                    } else {
+                        return redirect()->back()->with('warning', 'You already took advance this month');
+                    }
                 } else {
-                    return redirect()->back()->with('warning', 'You already took advance this month');
+                    return redirect()->back()->with('error', 'Cannot request advance for a past month');
                 }
             } else {
-                return redirect()->back()->with('error', 'Cannot request advance for a past month');
+                return redirect()->back()->with('error', 'Advance salary cannot be greater than the employee\'s current salary');
             }
         } else {
-            return redirect()->back()->with('error', 'Advance salary cannot be greater than the employee\'s current salary');
+            return redirect()->back()->with('error', 'Advance Greater then '. $request->advance_salary);
         }
+        
     }
 
 

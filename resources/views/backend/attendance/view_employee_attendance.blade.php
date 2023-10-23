@@ -18,7 +18,7 @@
     border: 1px solid #ccc;
     border-radius: 5px;
 }
-
+ 
 .filter-form button {
     padding: 5px 10px;
     background-color: #007bff;
@@ -92,7 +92,7 @@
                                                                 }
                                                             }
                                                             else {
-                                                                $status = '<span class="badge bg-secondary">A</span>';
+                                                                $status = '<span class="badge bg-secondary"></span>';
                                                             }
                                                             @endphp
                                                             {{-- {{ $new[$day . '_' . $employee->id] ?? "" }} --}}

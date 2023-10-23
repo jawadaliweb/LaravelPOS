@@ -12,7 +12,9 @@
         <!-- App favicon -->
         <link rel="shortcut icon" href="{{ asset('assets/images/favicon.ico') }}">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/css/lightbox.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.min.js"></script>
+        
 
         <!-- Plugins css -->
         <link href="{{ asset('assets/libs/flatpickr/flatpickr.min.css') }}" rel="stylesheet" type="text/css" />
@@ -32,7 +34,6 @@
         <link href="{{ asset('assets/libs/datatables.net-buttons-bs5/css/buttons.bootstrap5.min.css') }}" rel="stylesheet" type="text/css" />
         <link href="{{ asset('assets/libs/datatables.net-select-bs5/css//select.bootstrap5.min.css') }}" rel="stylesheet" type="text/css" />
         <!-- third party css end -->
-
 
 
         <!-- Bootstrap css -->
@@ -71,7 +72,6 @@
 
                 @yield('admin')
 
-
                 <!-- Footer Start -->
                 <footer class="footer">
                     <div class="container-fluid">
@@ -106,7 +106,6 @@
         <!-- /Right-bar -->
 
         <!-- Right bar overlay-->
-
         <script src="{{ asset('assets/js/vendor.min.js') }}"></script>
 
         <!-- Plugins js-->

@@ -10,7 +10,7 @@
 
             <ul id="side-menu">
 
-                <li class="menu-title">Menu</li>
+                <li class="menu-title">Main</li>
 
                 <li>
                     <a href="{{ route('dashboard') }}">
@@ -18,6 +18,8 @@
                         <span> Dashboard </span>
                     </a>
                 </li>
+
+                <li class="menu-title" >HR Management</li>
 
 
                 <li>
@@ -104,7 +106,7 @@
                 </li>
 
 
-                <li>
+                    <li>
                     <a href="#sidebarEcommerce5" data-bs-toggle="collapse">
                         <i class="fa fa-calendar"></i>
                         <span> Employee Attendance </span>
@@ -114,6 +116,75 @@
                         <ul class="nav-second-level">
                             <li>
                                 <a href="{{ route('employee.attendance.list') }}">Attendance List</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                
+                <li class="menu-title" >Product Management</li>
+
+                <li>
+                    <a href="#sidebarEcommerce7" data-bs-toggle="collapse">
+                        <i class="fa fa-tag"></i>
+                        <span> Category </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarEcommerce7">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{route('category.list')}}">Category List</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+
+                <li>
+                    <a href="#sidebarEcommerce8" data-bs-toggle="collapse">
+                        <i class="fas fa-box-open"></i>
+                        <span> Product </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarEcommerce8">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{route('product.list')}}">Product List</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+
+                <li class="menu-title" >Product Purchases</li>
+
+                <li>
+                    <a href="#sidebarEcommerce9" data-bs-toggle="collapse">
+                        <i class="fa fa-shopping-cart"></i>
+                        <span> Purchase </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarEcommerce9">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{route('pruchase.form')}}">Add Purchase</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
+
+                <li class="menu-title" >Expenses</li>
+
+                <li>
+                    <a href="#sidebarEcommerce10" data-bs-toggle="collapse">
+                        <i class="fa fa-dollar"></i>
+                        <span> Expenses </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarEcommerce10">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{route('expense.list')}}">View Expense</a>
                             </li>
                         </ul>
                     </div>

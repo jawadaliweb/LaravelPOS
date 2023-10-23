@@ -7,9 +7,12 @@ use App\Http\Controllers\Backend\CustomerController;
 use App\Http\Controllers\Backend\SupplierController;
 use App\Http\Controllers\Backend\SalaryController;
 use App\Http\Controllers\Backend\AttendanceController;
-
+use App\Http\Controllers\Backend\CategoryController;
+use App\Http\Controllers\Backend\ProductController;
+use App\Http\Controllers\purchaseControllar;
+use App\Http\Controllers\Backend\ProductImportController;
+use App\Http\Controllers\Backend\ExpenseController;
 use Illuminate\Support\Facades\Route;
- 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,18 +24,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::fallback( function(){
  return redirect('login');
 });
 
 
-Route::get('/dashboard', function () {
+Route::get('/', function () {
     return view('index');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -45,8 +45,8 @@ Route::middleware('auth')->group(function () {
     Route::get('admin/change/password', [AdminController::class, 'ChangePassword'])->name('change.paswword');
     Route::post('change/password', [AdminController::class, 'AdminPasswordUpdate'])->name('admin.password.update');
 
-//employee Routes
-Route::controller(EmployeeController::class)->group(function () {
+    //employee Routes
+    Route::controller(EmployeeController::class)->group(function () {
     Route::get('/view/Employee', 'ViewEmployee')->name('view.employee');
     Route::get('/add/Employee', 'AddEmployeeForm')->name('employee.add');
     Route::post('/adding/Employee', 'AddingEmployee')->name('employee.adding');
@@ -124,5 +124,47 @@ Route::controller(AttendanceController::class)->group(function () {
     Route::get('/attendance/list', 'EmployeeAttendanceList')->name('attendance.list');
 
 });
+
+
+
+Route::controller(CategoryController::class)->group(function () {
+    Route::get('/category/list', 'CategoryList')->name('category.list');
+    Route::post('/store/category', 'AddCategory')->name('add.category');
+    Route::post('/update/category/{id}', 'UpdatingCategory')->name('updating.category');
+    Route::get('/delete/category/{id}','DeleteCategory')->name('delete.category');
+    Route::get('/update/category/{id}','UpdateCategory')->name('update.category');
+});
+
+Route::controller(ProductController::class)->group(function () {
+    Route::get('/product/list', 'ProductList')->name('product.list');
+    // Route::get('/category/add/', 'categoryform')->name('categoryform');
+    Route::post('/store/product', 'AddProduct')->name('add.product');
+    Route::get('/delete/product/{id}','DeleteProduct')->name('delete.product');
+    Route::get('/update/product/{id}','UpdateProduct')->name('update.product');
+    Route::post('/updating/product/{id}', 'UpdatingProduct')->name('updating.product');
+
+});
+
+Route::controller(purchaseControllar::class)->group(function () {
+    Route::get('/purchase/list', 'AddForm')->name('pruchase.form');
+    Route::post('/purchase/store', 'AddPurchase')->name('product.purchase');
+
+
+});
+
+Route::controller(ProductImportController::class)->group(function () {
+    Route::post('/products/import', 'import')->name('product.import');
+});
+
+
+Route::controller(ExpenseController::class)->group(function () {
+    Route::get('/expense/list', 'ExpenseList')->name('expense.list');
+    Route::post('/add/expense', 'AddExpense')->name('add.expense');
+    Route::put('/update/expense/{id}', 'UpdateExpense')->name('update.expense');
+    Route::get('/delete/expense/{id}', 'DeleteExpense')->name('delete.expense');
+    Route::delete('/delete-multiple-expenses', 'DeleteMultipleExpenses')->name('delete.multiple.expenses');
+
+});
+
 
 require __DIR__.'/auth.php';
