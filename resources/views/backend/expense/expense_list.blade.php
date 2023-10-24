@@ -47,10 +47,13 @@
 
                                 </div>
                                 </div>
+                                <div>
+                                    <h5 class="text-center text-dark" style="width: 15%; padding:5px; border-radius:20px; margin-left:auto; margin-right:auto; border:1px solid rgba(0, 0, 0, 0.211); "> {{ date('F') }} Expenses </h5>
+                                </div>
+
                             </form>
 
                             
-                            <h5 class="text-center"> {{ date('F') }} Expenses </h5>
                             <form action="{{ route('delete.multiple.expenses') }}" method="POST" id="delete-expenses-form">
                                 @csrf
                                 @method('delete')

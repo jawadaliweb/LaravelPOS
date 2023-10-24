@@ -39,12 +39,15 @@ class purchaseControllar extends Controller
             'total_price' => ($request->total_quantity[$index] * $request->price[$index]) - ($request->discount[$index] ?? 0),
         ]);
         $total_price += ($request->total_quantity[$index] * $request->price[$index]) - ($request->discount[$index] ?? 0);
-
         $stock->save();
     }
-
+    
     $purchase->total_price = $total_price;
     $purchase->save();
+    
+    $product = Product::findOrFail($productId);
+    $product->quantity += array_sum($request->total_quantity);
+    $product->save();
 
     return redirect()->back()->with('success', 'Products Purchased Successfully');
 }

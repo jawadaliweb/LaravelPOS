@@ -20,6 +20,7 @@
                                         <th>Image</th>
                                         <th>Name</th>
                                         <th>Product Code</th>
+                                        <th>Total Stocks</th>
                                         <th>Category</th>
                                         <th style="text-align: center; width:14%;">Action</th>
                                     </tr>
@@ -33,6 +34,9 @@
                                             </td>
                                             <td>{{ $product->product_name }}</td>
                                             <td>{{ $product->product_code }}</td>
+                                            <td>
+                                                {{ $product->quantity }}
+                                            </td>
                                             <td>{{ $product->category->category_name }}</td>
                                             <td style="padding: 25px 0px"  class=" d-flex justify-content-around">
                                                 <a href="{{ route('update.product', $product->id) }}"

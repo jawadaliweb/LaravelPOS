@@ -38,11 +38,11 @@
         <td>{{ $employee->salary }} Rs</td>
 
         <td>
-            @if ($employee->advance->isNotEmpty())
+            @if ($employee->advance)
             @php
                 $totalAdvance = 0;
             @endphp
-            @foreach ($employee->advance as $advance)
+        @foreach ($employee->advance as $advance)
                 @php
                 if ($advance->status == 0) {
                     $totalAdvance += $advance->advance_salary;
@@ -61,7 +61,7 @@
                     $salary = $employee->salary;
                     $due = $salary - $totalAdvance;
                 @endphp
-             <strong  class="text-black">  {{round( $due )}} Rs </strong> 
+             <strong  class="text-black">  {{ round( $due ) }} Rs </strong> 
 
                 
             @else

@@ -15,6 +15,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/css/lightbox.min.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.min.js"></script>
         
+        @livewireStyles
 
         <!-- Plugins css -->
         <link href="{{ asset('assets/libs/flatpickr/flatpickr.min.css') }}" rel="stylesheet" type="text/css" />
@@ -113,6 +114,7 @@
         <script src="{{ asset('assets/libs/apexcharts/apexcharts.min.js') }}"></script>
 
         <script src="{{ asset('assets/libs/selectize/js/standalone/selectize.min.js') }}"></script>
+        @livewireScripts
 
 
         <!-- third party js -->

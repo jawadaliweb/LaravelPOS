@@ -13,6 +13,12 @@ class ProductController extends Controller
     public function ProductList() {
         $products = Product::with('category')->get();
         $categories = category::get();
+
+        // echo '<pre>';
+        // echo json_encode($products, JSON_PRETTY_PRINT);
+        // echo '</pre>';
+        // die();
+
         return view('backend.product.product_list', compact('products','categories'));
     }
 

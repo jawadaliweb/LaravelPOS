@@ -12,7 +12,10 @@ use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\purchaseControllar;
 use App\Http\Controllers\Backend\ProductImportController;
 use App\Http\Controllers\Backend\ExpenseController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,11 +30,10 @@ use Illuminate\Support\Facades\Route;
 Route::fallback( function(){
  return redirect('login');
 });
+Route::middleware('auth')->controller(DashboardController::class)->group(function () {
+    Route::get('/', 'ViewDashboard')->name('dashboard')->middleware(['auth', 'verified']);
+});
 
-
-Route::get('/', function () {
-    return view('index');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 
 Route::middleware('auth')->group(function () {
@@ -58,7 +60,7 @@ Route::middleware('auth')->group(function () {
 });
 
 //customer Routes
-Route::controller(CustomerController::class)->group(function () {
+Route::middleware('auth')->controller(CustomerController::class)->group(function () {
     Route::get('/view/customer', 'ViewCustomer')->name('view.customer');
 
     Route::get('/add/customer', function () {
@@ -74,7 +76,7 @@ Route::controller(CustomerController::class)->group(function () {
 
 });
 
-Route::controller(SupplierController::class)->group(function () {
+Route::middleware('auth')->controller(SupplierController::class)->group(function () {
     Route::get('/view/suppliers', 'ViewSuppliers')->name('view.suppliers');
 
     Route::get('/add/supplier', function () {
@@ -94,7 +96,7 @@ Route::controller(SupplierController::class)->group(function () {
 
 });
 
-Route::controller(SalaryController::class)->group(function () {
+Route::middleware('auth')->controller(SalaryController::class)->group(function () {
     Route::get('/add/advanceSalary', 'AddAdvanceSalary')->name('add.advance.salary');
     Route::post('/store/advanceSalary', 'StoreAdvanceSalary')->name('advance.salary.store');
     Route::get('/all/advanceSalary', 'AllAdvanceSalary')->name('all.advance.salary');
@@ -107,7 +109,7 @@ Route::controller(SalaryController::class)->group(function () {
 });
 
 
-Route::controller(SalaryController::class)->group(function () {
+Route::middleware('auth')->controller(SalaryController::class)->group(function () {
     Route::get('/pay/salary', 'PaySalary')->name('PaySalary');
     Route::get('/pay/salary/{id}', 'PayNowSalary')->name('pay.salary');
     Route::get('/paiad/salaries', 'PaidSalaries')->name('PaidSalaries');
@@ -127,7 +129,7 @@ Route::controller(AttendanceController::class)->group(function () {
 
 
 
-Route::controller(CategoryController::class)->group(function () {
+Route::middleware('auth')->controller(CategoryController::class)->group(function () {
     Route::get('/category/list', 'CategoryList')->name('category.list');
     Route::post('/store/category', 'AddCategory')->name('add.category');
     Route::post('/update/category/{id}', 'UpdatingCategory')->name('updating.category');
@@ -135,7 +137,7 @@ Route::controller(CategoryController::class)->group(function () {
     Route::get('/update/category/{id}','UpdateCategory')->name('update.category');
 });
 
-Route::controller(ProductController::class)->group(function () {
+Route::middleware('auth')->controller(ProductController::class)->group(function () {
     Route::get('/product/list', 'ProductList')->name('product.list');
     // Route::get('/category/add/', 'categoryform')->name('categoryform');
     Route::post('/store/product', 'AddProduct')->name('add.product');
@@ -145,19 +147,19 @@ Route::controller(ProductController::class)->group(function () {
 
 });
 
-Route::controller(purchaseControllar::class)->group(function () {
+Route::middleware('auth')->controller(purchaseControllar::class)->group(function () {
     Route::get('/purchase/list', 'AddForm')->name('pruchase.form');
     Route::post('/purchase/store', 'AddPurchase')->name('product.purchase');
 
 
 });
 
-Route::controller(ProductImportController::class)->group(function () {
+Route::middleware('auth')->controller(ProductImportController::class)->group(function () {
     Route::post('/products/import', 'import')->name('product.import');
 });
 
 
-Route::controller(ExpenseController::class)->group(function () {
+Route::middleware('auth')->controller(ExpenseController::class)->group(function () {
     Route::get('/expense/list', 'ExpenseList')->name('expense.list');
     Route::post('/add/expense', 'AddExpense')->name('add.expense');
     Route::put('/update/expense/{id}', 'UpdateExpense')->name('update.expense');
