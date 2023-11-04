@@ -118,7 +118,7 @@
                                                     input.value = '';
                                             });
                                             const selected_product_values = productClone.querySelector('.product_names')
-                                            selected_product_values.disabled = ""
+                                            selected_product_values.readonly = ""
 
                                             for (let item of selected_product_values.children) {
                                                 if (item.value == product_select_element.value) {
@@ -127,7 +127,7 @@
                                             }
                                             
                                             if (selected_product_values.children.length) {
-                                                product_select_element.disabled = 'disabled'
+                                                product_select_element.readonly = 'readonly'
                                                 const removeButton = document.createElement('button');
                                                 removeButton.className = 'btn btn-danger remove-product';
                                                 removeButton.innerHTML = '&#128465'; // HTML entity for trash icon
@@ -141,7 +141,7 @@
                                     // Add event listener to remove a product field group
                                     document.addEventListener('click', function(event) {
                                         if (event.target.classList.contains('remove-product')) {
-                                            event.target.parentNode.previousElementSibling.querySelector('.product_names').disabled = ""
+                                            event.target.parentNode.previousElementSibling.querySelector('.product_names').readonly = ""
                                             event.target.parentNode.remove();
                                         }
                                     });

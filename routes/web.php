@@ -13,6 +13,7 @@ use App\Http\Controllers\purchaseControllar;
 use App\Http\Controllers\Backend\ProductImportController;
 use App\Http\Controllers\Backend\ExpenseController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\SaleController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -150,8 +151,9 @@ Route::middleware('auth')->controller(ProductController::class)->group(function 
 Route::middleware('auth')->controller(purchaseControllar::class)->group(function () {
     Route::get('/purchase/list', 'AddForm')->name('pruchase.form');
     Route::post('/purchase/store', 'AddPurchase')->name('product.purchase');
-
-
+    Route::get('/purchase/view', 'ViewPurchase')->name('view.purchase');
+    Route::get('/stock/delete/{id}', 'DeleteStock')->name('delete.stock');
+    Route::get('/purchase/delete/{id}', 'DeletePurchase')->name('delete.purchase');
 });
 
 Route::middleware('auth')->controller(ProductImportController::class)->group(function () {
@@ -165,6 +167,12 @@ Route::middleware('auth')->controller(ExpenseController::class)->group(function 
     Route::put('/update/expense/{id}', 'UpdateExpense')->name('update.expense');
     Route::get('/delete/expense/{id}', 'DeleteExpense')->name('delete.expense');
     Route::delete('/delete-multiple-expenses', 'DeleteMultipleExpenses')->name('delete.multiple.expenses');
+
+});
+
+Route::middleware('auth')->controller(SaleController::class)->group(function () {
+    Route::get('/view/sale', 'SaleView')->name('sale.view');
+    Route::post('/sale/store', 'SaleStore')->name('sale.store');
 
 });
 

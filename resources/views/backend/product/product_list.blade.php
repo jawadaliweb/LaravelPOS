@@ -13,13 +13,15 @@
                                 <button type="button" class="btn btn-primary rounded-pill waves-effect waves-light"
                                     data-bs-toggle="modal" data-bs-target="#con-close-modal">Add Product</button>
                             </div>
-                            <table style="vertical-align: middle;" id="datatable-buttons" class="table table-striped dt-responsive nowrap w-100">
+                            <table style="vertical-align: middle;" id="datatable-buttons"
+                                class="table table-striped dt-responsive nowrap w-100">
                                 <thead>
                                     <tr>
                                         <th>ID</th>
                                         <th>Image</th>
                                         <th>Name</th>
                                         <th>Product Code</th>
+                                        <th>Sale Price</th>
                                         <th>Total Stocks</th>
                                         <th>Category</th>
                                         <th style="text-align: center; width:14%;">Action</th>
@@ -30,15 +32,18 @@
                                         <tr>
                                             <td>{{ $product->id }}</td>
                                             <td>
-                                            <img width="50" src="{{ asset('upload/product/'.$product->product_image) }}" alt="">
+                                                <img width="50"
+                                                    src="{{ asset('upload/product/' . $product->product_image) }}"
+                                                    alt="">
                                             </td>
                                             <td>{{ $product->product_name }}</td>
                                             <td>{{ $product->product_code }}</td>
+                                            <td>{{ $product->sale_price }}</td>
                                             <td>
                                                 {{ $product->quantity }}
                                             </td>
                                             <td>{{ $product->category->category_name }}</td>
-                                            <td style="padding: 25px 0px"  class=" d-flex justify-content-around">
+                                            <td style="padding: 25px 0px" class=" d-flex justify-content-around">
                                                 <a href="{{ route('update.product', $product->id) }}"
                                                     class="btn btn-blue rounded-pill waves-effect waves-light update-customerloyee-button">Update</a>
                                                 <a href="{{ route('delete.product', $product->id) }}"
@@ -55,7 +60,7 @@
                     {{-- product adding modal poup --}}
                     <div id="con-close-modal" class="modal fade" tabindex="-1" role="dialog"
                         aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-                        <div class="modal-dialog" >
+                        <div class="modal-dialog">
                             <div class="modal-content">
                                 <form method="POST" action="{{ route('add.product') }}" enctype="multipart/form-data">
                                     @csrf
@@ -82,6 +87,15 @@
                                                 </div>
                                             </div>
 
+
+                                            <div class="col-md-12">
+                                                <div class="mb-3">
+                                                    <label for="field-1" class="form-label">Sale Price</label>
+                                                    <input name="sale_price" type="text" class="form-control"
+                                                        id="field-1" placeholder="Sale Price">
+                                                </div>
+                                            </div>
+
                                             <div class="col-md-12   ">
                                                 <div class="mb-3">
                                                     <label for="field-1" class="form-label">Select Category</label>
@@ -105,7 +119,7 @@
 
                                     </div>
                                     <div class="modal-footer">
-                
+
                                         <button type="submit" class="btn btn-info waves-effect waves-light">Save
                                             changes</button>
                                     </div>

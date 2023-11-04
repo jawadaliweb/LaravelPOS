@@ -168,6 +168,10 @@
                             <li>
                                 <a href="{{route('pruchase.form')}}">Add Purchase</a>
                             </li>
+                            
+                            <li>
+                                <a href="{{route('view.purchase')}}">Purchase List</a>
+                            </li>
                         </ul>
                     </div>
                 </li>
@@ -191,6 +195,23 @@
                 </li>
 
 
+                <li>
+                    <a href="#sidebarEcommerce11" data-bs-toggle="collapse">
+                        <i class="fas fa-poll"></i>
+                        <span> Sale </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarEcommerce11">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{route('sale.view')}}">Sales List</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </li>
+
+
             </ul>
 
         </div>
@@ -201,4 +222,7 @@
     </div>
     <!-- Sidebar -left -->
 
+
+
+    
 </div>

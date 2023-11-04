@@ -27,6 +27,7 @@ class ProductController extends Controller
             'product_name' => $request->product_name,
             'product_code' => $request->product_code,
             'category_id' => $request->category_id,
+            'sale_price' => $request->sale_price,
         ];
         if ($request->hasFile('product_image')) {
             $image = $request->file('product_image');
@@ -56,6 +57,7 @@ class ProductController extends Controller
             'product_name' => $request->product_name,
             'product_code' => $request->product_code,
             'category_id' => $request->category_id,
+            'sale_price' => $request->sale_price,
         ];
         if ($request->hasFile('product_image')) {
             $image = $request->file('product_image');

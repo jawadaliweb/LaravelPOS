@@ -19,6 +19,7 @@ return new class extends Migration
             $table->unsignedBigInteger('category_id');
             $table->string('product_code');
             $table->string('product_image');
+            $table->float('sale_price');
             $table->integer('quantity')->default(0);
             $table->timestamps();
         
