@@ -46,6 +46,7 @@
         <!-- Head js -->
         <script src="{{ asset('assets/js/head.js') }}"></script>
 
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     </head>
 

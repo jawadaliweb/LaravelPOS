@@ -71,6 +71,14 @@
         .content-page {
             margin-left: 0px;
         }
+
+        .navbar-custom
+        {
+            display: none;
+        }
+        .content-page{
+            margin-top: 0px;
+        }
     </style>
 
 
@@ -84,11 +92,18 @@
                 @endforeach
             </div>
         </div>
-        <div class="col-md-5">
+        <div class="col-md-5 d-flex" style="align-items: center; justify-content:space-around">
             <a class="btn btn-primary btn-block m-1" data-category="all" href="/">Back</a>
+            <li class="dropdown d-none d-lg-inline-block">
+                <a  class="nav-link dropdown-toggle arrow-none waves-effect waves-light" data-toggle="fullscreen" href="#">
+                    <i class="fe-maximize noti-icon"></i>
+                </a>
+            </li>
 
         </div>
     </div>
+
+
 
     <div class="row mt-2 g-2">
         <div class="col-md-7">
@@ -582,7 +597,7 @@
             }
         }
 
-        var addData = async (something) => {
+         addData = async (something) => {
             let headersList = {
                 "Content-Type": "application/json",
                 "X-CSRF-TOKEN": "{{ csrf_token() }}"

@@ -38,6 +38,13 @@
       0 => 'Laravel\\Tinker\\TinkerServiceProvider',
     ),
   ),
+  'laraveldaily/laravel-charts' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'LaravelDaily\\LaravelCharts\\LaravelChartsServiceProvider',
+    ),
+  ),
   'livewire/livewire' => 
   array (
     'providers' => 
@@ -101,6 +108,13 @@
     'aliases' => 
     array (
       'Flare' => 'Spatie\\LaravelIgnition\\Facades\\Flare',
+    ),
+  ),
+  'spatie/laravel-permission' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Spatie\\Permission\\PermissionServiceProvider',
     ),
   ),
   'yoeunes/toastr' => 

@@ -16,6 +16,7 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
+        "chart.js": "^4.4.0",
         "flag-icon-css": "^4.1.7",
         "toastr": "^2.1.4"
     }

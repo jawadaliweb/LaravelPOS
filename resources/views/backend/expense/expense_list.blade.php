@@ -17,7 +17,7 @@
                                 <button type="button" class="btn btn-primary rounded-pill waves-effect waves-light"
                                     data-bs-toggle="modal" data-bs-target="#con-close-modal">Add Expense</button>
                             </div>
-                            @if ($expenses->isNotEmpty())
+                           
                             <form method="get" action="{{ route('expense.list') }}" class="d-flex">
 
                                 <div class="row">
@@ -53,7 +53,7 @@
                                 </div>
 
                             </form>
-                            @endif
+                           
                             
                             <form action="{{ route('delete.multiple.expenses') }}" method="POST" id="delete-expenses-form">
                                 @csrf

@@ -22,6 +22,9 @@ class DatabaseSeeder extends Seeder
         // Use the factory here
 // Use the factory here
     Employee::factory()->times(20)->create();
+    $this->call(adminseeder::class);
+    $this->call(PermissionsSeeder::class);
+    $this->call(SuperAdminPermissionsSeeder::class);
 
     }
 }

@@ -40,6 +40,8 @@
                     </div>
                 </li>
 
+                
+                {{-- @if(auth()->user()->can('pos.view')) --}}
 
                 <li>
                     <a href="#sidebarEcommerce2" data-bs-toggle="collapse">
@@ -58,6 +60,8 @@
                         </ul>
                     </div>
                 </li>
+
+                {{-- @endif --}}
 
                 <li>
                     <a href="#sidebarEcommerce3" data-bs-toggle="collapse">
@@ -194,17 +198,33 @@
                     </div>
                 </li>
 
+                <li>
+                    <a href="{{route('sale.view')}}">
+                        <i class="mdi mdi-view-dashboard-outline"></i>
+                        <span> POS </span>
+                    </a>
+                </li>
+
+                <li class="menu-title" > Accounts Managemnt</li>
 
                 <li>
                     <a href="#sidebarEcommerce11" data-bs-toggle="collapse">
-                        <i class="fas fa-poll"></i>
-                        <span> Sale </span>
+                        <i class="fas fa-key"></i>
+                        <span> Roles and Permission </span>
                         <span class="menu-arrow"></span>
                     </a>
                     <div class="collapse" id="sidebarEcommerce11">
                         <ul class="nav-second-level">
                             <li>
-                                <a href="{{route('sale.view')}}">Sales List</a>
+                                <a href="{{route('all.permissions')}}">Permissions</a>
+                            </li>
+
+                            <li>
+                                <a href="{{route('all.roles')}}">All Roles</a>
+                            </li>
+
+                            <li>
+                                <a href="{{route('assing.permission')}}">Assing permissions</a>
                             </li>
 
                         </ul>
@@ -212,6 +232,22 @@
                 </li>
 
 
+                
+                <li>
+                    <a href="#sidebarEcommerce12" data-bs-toggle="collapse">
+                        <i class="fas fa-user-alt"></i>
+                        <span> Users Management </span>
+                        <span class="menu-arrow"></span>
+                    </a>
+                    <div class="collapse" id="sidebarEcommerce12">
+                        <ul class="nav-second-level">
+                            <li>
+                                <a href="{{route('users.list')}}">Users</a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                
             </ul>
 
         </div>
