@@ -176,8 +176,8 @@ Route::middleware('auth')->controller(ExpenseController::class)->group(function 
 });
 
 Route::middleware('auth')->controller(SaleController::class)->group(function () {
-    Route::get('/view/sale', 'SaleView')->middleware('permission:sale.view')->name('sale.view');
-    Route::post('/sale/store', 'SaleStore')->middleware('permission:sale.add')->name('sale.store');
+    Route::get('/view/sale', 'SaleView')->middleware('permission:stock.view')->name('sale.view');
+    Route::post('/sale/store', 'SaleStore')->middleware('permission:stock.add')->name('sale.store');
 
 });
 

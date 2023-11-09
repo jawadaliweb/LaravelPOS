@@ -22,6 +22,7 @@
                 <li class="menu-title" >HR Management</li>
 
 
+                @can('employee.view')
                 <li>
                     <a href="#sidebarEcommerce" data-bs-toggle="collapse">
                         <i class="fas fa-user-tie	"></i>
@@ -33,15 +34,19 @@
                             <li>
                                 <a href="{{ route('view.employee') }}">All Employees</a>
                             </li>
+                        @can('employee.add')
                             <li>
                                 <a href="{{ route('employee.add') }}">Add Employee</a>
                             </li>
+                        @endcan
                         </ul>
                     </div>
                 </li>
+                @endcan
 
                 
                 {{-- @if(auth()->user()->can('pos.view')) --}}
+                @can('customer.view')
 
                 <li>
                     <a href="#sidebarEcommerce2" data-bs-toggle="collapse">
@@ -51,18 +56,24 @@
                     </a>
                     <div class="collapse" id="sidebarEcommerce2">
                         <ul class="nav-second-level">
+                            @can('customer.view')
                             <li>
                                 <a href="{{ route('view.customer') }}">All Customers</a>
                             </li>
+                            @endcan
+                            @can('customer.add')
                             <li>
                                 <a href="{{ route('customer_add_form') }}">Add Customers</a>
                             </li>
+                            @endcan
                         </ul>
                     </div>
                 </li>
 
-                {{-- @endif --}}
+                @endcan
 
+                {{-- @endif --}}
+                @can('supplier.view')
                 <li>
                     <a href="#sidebarEcommerce3" data-bs-toggle="collapse">
                         <i class="fas fa-dolly-flatbed"></i>
@@ -71,17 +82,24 @@
                     </a>
                     <div class="collapse" id="sidebarEcommerce3">
                         <ul class="nav-second-level">
+                            @can('supplier.view')
                             <li>
                                 <a href="{{ route('view.suppliers') }}">All Suppliers</a>
                             </li>
+                            @endcan
+
+                            @can('supplier.add')
                             <li>
-                                <a href="{{ route('supplier_add_form') }}">Add Customers</a>
+                                <a href="{{ route('supplier_add_form') }}">Add Suppliers</a>
                             </li>
+                            @endcan
                         </ul>
                     </div>
                 </li>
+                @endcan
 
 
+                @can('salary.view')
                 <li>
                     <a href="#sidebarEcommerce4" data-bs-toggle="collapse">
                         <i class="fa fa-money	
@@ -91,25 +109,37 @@
                     </a>
                     <div class="collapse" id="sidebarEcommerce4">
                         <ul class="nav-second-level">
+                            @can('salary.view')
                             <li>
                                 <a href="{{ route('all.advance.salary') }}">All Advances</a>
                             </li>
+                            @endcan
+                            @can('salary.add')
                             <li>
                                 <a href="{{ route('add.advance.salary') }}">Add Advance Salary</a>
                             </li>
+                            @endcan
+
+                            @can('salary.add')
                             
                             <li>
                                 <a href="{{route('PaySalary')}}">Pay Salary</a>
                             </li>
+                            @endcan
 
+                            @can('salary.view')
                             <li>
                                 <a href="{{ route('PaidSalaries') }}">Piad Salaries</a>
                             </li>
+                            @endcan
+
                         </ul>
                     </div>
                 </li>
+                @endcan
 
 
+                @can('attendance.view')
                     <li>
                     <a href="#sidebarEcommerce5" data-bs-toggle="collapse">
                         <i class="fa fa-calendar"></i>
@@ -124,6 +154,10 @@
                         </ul>
                     </div>
                 </li>
+                @endcan
+
+                
+                @can('category.view')
                 
                 <li class="menu-title" >Product Management</li>
 
@@ -142,6 +176,9 @@
                     </div>
                 </li>
 
+                @endcan
+
+                @can('product.view')
 
                 <li>
                     <a href="#sidebarEcommerce8" data-bs-toggle="collapse">
@@ -157,7 +194,10 @@
                         </ul>
                     </div>
                 </li>
+                @endcan
 
+
+                @can('stock.view')
 
                 <li class="menu-title" >Product Purchases</li>
 
@@ -169,9 +209,12 @@
                     </a>
                     <div class="collapse" id="sidebarEcommerce9">
                         <ul class="nav-second-level">
+                    @can('stock.add')
+
                             <li>
                                 <a href="{{route('pruchase.form')}}">Add Purchase</a>
                             </li>
+                    @endcan
                             
                             <li>
                                 <a href="{{route('view.purchase')}}">Purchase List</a>
@@ -180,6 +223,10 @@
                     </div>
                 </li>
 
+                @endcan
+
+
+                @can('expences.view')
 
                 <li class="menu-title" >Expenses</li>
 
@@ -198,14 +245,23 @@
                     </div>
                 </li>
 
+                @endcan
+
+                @can('stock.view')
                 <li>
                     <a href="{{route('sale.view')}}">
                         <i class="mdi mdi-view-dashboard-outline"></i>
                         <span> POS </span>
                     </a>
                 </li>
+                @endcan
+
+
+                @can('roles.view')
+
 
                 <li class="menu-title" > Accounts Managemnt</li>
+
 
                 <li>
                     <a href="#sidebarEcommerce11" data-bs-toggle="collapse">
@@ -247,6 +303,8 @@
                         </ul>
                     </div>
                 </li>
+                @endcan
+
                 
             </ul>
 
