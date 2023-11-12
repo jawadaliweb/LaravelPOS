@@ -154,11 +154,11 @@ Route::middleware('auth')->controller(ProductController::class)->group(function 
 });
 
 Route::middleware('auth')->controller(purchaseControllar::class)->group(function () {
-    Route::get('/purchase/list', 'AddForm')->middleware('permission:purchase.view')->name('pruchase.form');
-    Route::post('/purchase/store', 'AddPurchase')->middleware('permission:purchase.view')->name('product.purchase');
-    Route::get('/purchase/view', 'ViewPurchase')->middleware('permission:purchase.view')->name('view.purchase');
-    Route::get('/stock/delete/{id}', 'DeleteStock')->middleware('permission:purchase.delete')->name('delete.stock');
-    Route::get('/purchase/delete/{id}', 'DeletePurchase')->middleware('permission:purchase.delete')->name('delete.purchase');
+    Route::get('/purchase/list', 'AddForm')->name('pruchase.form');
+    Route::post('/purchase/store', 'AddPurchase')->name('product.purchase');
+    Route::get('/purchase/view', 'ViewPurchase')->name('view.purchase');
+    Route::get('/stock/delete/{id}', 'DeleteStock')->name('delete.stock');
+    Route::get('/purchase/delete/{id}', 'DeletePurchase')->name('delete.purchase');
 });
 
 Route::middleware('auth')->controller(ProductImportController::class)->group(function () {
